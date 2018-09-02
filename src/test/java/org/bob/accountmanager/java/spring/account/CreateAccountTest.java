@@ -36,7 +36,7 @@ public class CreateAccountTest {
     @After
     public void after() {
         for (Account account : accountController.all()) {
-            accountController.delete(account);
+            accountController.deleteById(account.getId());
         }
     }
 
@@ -60,9 +60,8 @@ public class CreateAccountTest {
     }
 
     @Test
-    public void delete() {
-        accountController.create(account1);
-        accountController.delete(account1);
+    public void deleteById() {
+        accountController.deleteById(accountController.create(account1).getId());
         assert accountController.getById(account1.getId()) == null;
     }
 

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController("/api/v1")
 public class AccountController {
 
@@ -35,8 +36,8 @@ public class AccountController {
         return accountService.update(account);
     }
 
-    @DeleteMapping
-    public Account delete(@RequestBody Account account) {
-        return accountService.delete(account);
+    @DeleteMapping("delete/{id}")
+    public Account deleteById(@PathVariable Long id) {
+        return accountService.deleteById(id);
     }
 }

@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
     public Account getAccountById(Long id);
+    public void deleteById(Long id);
 }
